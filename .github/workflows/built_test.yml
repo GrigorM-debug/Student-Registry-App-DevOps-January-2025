@@ -29,6 +29,6 @@ jobs:
       - name: Restore packages
         run: npm install
       - name: Run Test
-        run: npm run test &
+        run: npm run test
       - name: Start the project
-        run: npm run start
+        run: npm run start &
