@@ -28,7 +28,12 @@ jobs:
           cache: "npm"
       - name: Restore packages
         run: npm install
-      - name: Run Test
-        run: npm run test
+      - name: Run Tests and Save Output
+        run: npm run test | tee test-results-node-${{matrix.node-version}}.txt
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-node-${{matrix.node-version}}
+          path: test-results-node-${{matrix.node-version}}.txt
       - name: Start the project
         run: npm run start &
