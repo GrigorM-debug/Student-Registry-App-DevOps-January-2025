@@ -28,7 +28,7 @@ jobs:
       - name: Restore packages
         run: npm install
       - name: Run Security Tests
-        run: npm run audit
+        run: npm audit
 
   build_test:
     runs-on: ubuntu-latest
